@@ -1,0 +1,875 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>tailwind.config={corePlugins:{preflight:false}}</script>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Clevedon Cuisine - Elevating Everyday Flavours</title>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Assistant:wght@400;600;700&family=Chivo:wght@400;700&display=swap');
+
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --color-bg: #ffffff;
+      --color-text: #121212;
+      --color-text-light: #555555;
+      --color-accent: #121212;
+      --color-accent-hover: #333333;
+      --color-section-alt: #f7f7f5;
+      --color-border: #e0e0e0;
+      --font-body: 'Assistant', sans-serif;
+      --font-heading: 'Chivo', sans-serif;
+      --page-width: 1200px;
+      --radius: 0px;
+    }
+
+    body {
+      font-family: var(--font-body);
+      color: var(--color-text);
+      background: var(--color-bg);
+      line-height: 1.6;
+      font-size: 16px;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    /* Mockup Banner */
+    .mockup-banner {
+      background: #0a0a0a;
+      color: rgba(255,255,255,0.6);
+      text-align: center;
+      padding: 8px 16px;
+      font-size: 13px;
+      font-family: sans-serif;
+      letter-spacing: 0.3px;
+      border-bottom: 1px solid rgba(255,255,255,0.1);
+    }
+
+    /* Header */
+    .site-header {
+      background: #000000;
+      border-bottom: none;
+      padding: 20px 0;
+      position: sticky;
+      top: 0;
+      z-index: 100;
+    }
+
+    .header-inner {
+      max-width: var(--page-width);
+      margin: 0 auto;
+      padding: 0 40px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .header-logo img {
+      height: 70px;
+      width: auto;
+    }
+
+    .header-nav {
+      display: flex;
+      gap: 32px;
+      list-style: none;
+    }
+
+    .header-nav a {
+      font-family: var(--font-body);
+      font-size: 15px;
+      font-weight: 400;
+      color: #ffffff;
+      text-decoration: none;
+      letter-spacing: 0.5px;
+      text-transform: uppercase;
+      transition: opacity 0.2s;
+    }
+
+    .header-nav a:hover {
+      opacity: 0.6;
+    }
+
+    .header-social a {
+      color: #ffffff;
+      text-decoration: none;
+      font-size: 14px;
+      display: flex;
+      align-items: center;
+    }
+
+    .header-social svg {
+      width: 22px;
+      height: 22px;
+      fill: #ffffff;
+      transition: opacity 0.2s;
+    }
+
+    .header-social a:hover svg {
+      opacity: 0.6;
+    }
+
+    /* Hero */
+    .hero {
+      position: relative;
+      width: 100%;
+      height: 45vh;
+      min-height: 320px;
+      overflow: hidden;
+      display: flex;
+      align-items: flex-end;
+      justify-content: center;
+      padding-bottom: 40px;
+    }
+
+    .hero img {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    .hero-overlay {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(to bottom, rgba(0,0,0,0.6) 0%, rgba(0,0,0,0.15) 40%, rgba(0,0,0,0.3) 100%);
+    }
+
+    .hero-content {
+      position: relative;
+      z-index: 2;
+      text-align: center;
+      color: #fff;
+      max-width: 700px;
+      padding: 0 20px;
+    }
+
+    .hero-content h1 {
+      font-family: var(--font-heading);
+      font-size: 48px;
+      font-weight: 400;
+      letter-spacing: 1px;
+      margin-bottom: 16px;
+      line-height: 1.2;
+    }
+
+    .hero-content p {
+      font-size: 18px;
+      font-weight: 400;
+      margin-bottom: 24px;
+      opacity: 0.9;
+    }
+
+    .btn {
+      display: inline-block;
+      padding: 14px 36px;
+      font-family: var(--font-body);
+      font-size: 14px;
+      font-weight: 600;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      text-decoration: none;
+      border: none;
+      cursor: pointer;
+      transition: all 0.3s;
+      border-radius: var(--radius);
+    }
+
+    .btn-primary {
+      background: var(--color-accent);
+      color: #fff;
+    }
+
+    .btn-primary:hover {
+      background: var(--color-accent-hover);
+    }
+
+    .btn-outline {
+      background: transparent;
+      color: #fff;
+      border: 1px solid #fff;
+    }
+
+    .btn-outline:hover {
+      background: #fff;
+      color: var(--color-accent);
+    }
+
+    /* Section Styles */
+    .section {
+      padding: 80px 40px;
+    }
+
+    .section-alt {
+      background: var(--color-section-alt);
+    }
+
+    .section-inner {
+      max-width: var(--page-width);
+      margin: 0 auto;
+    }
+
+    .section-heading {
+      font-family: var(--font-heading);
+      font-size: 36px;
+      font-weight: 400;
+      text-align: center;
+      margin-bottom: 16px;
+      color: var(--color-text);
+    }
+
+    .section-subheading {
+      font-size: 16px;
+      color: var(--color-text-light);
+      text-align: center;
+      max-width: 600px;
+      margin: 0 auto 48px;
+      line-height: 1.7;
+    }
+
+    /* Product Grid */
+    .product-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 32px;
+    }
+
+    .product-card {
+      background: var(--color-bg);
+      border: 1px solid var(--color-border);
+      border-radius: var(--radius);
+      overflow: hidden;
+      transition: box-shadow 0.3s;
+    }
+
+    .product-card:hover {
+      box-shadow: 0 4px 20px rgba(0,0,0,0.08);
+    }
+
+    .product-card-img {
+      width: 100%;
+      aspect-ratio: 1;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: #ffffff;
+      padding: 24px;
+    }
+
+    .product-card-img img {
+      max-width: 80%;
+      max-height: 80%;
+      object-fit: contain;
+    }
+
+    .product-card-body {
+      padding: 24px;
+    }
+
+    .product-card-body h3 {
+      font-family: var(--font-heading);
+      font-size: 20px;
+      font-weight: 400;
+      margin-bottom: 8px;
+    }
+
+    .product-card-body .price {
+      font-size: 16px;
+      font-weight: 700;
+      color: var(--color-text);
+      margin-bottom: 8px;
+    }
+
+    .product-card-body .description {
+      font-size: 14px;
+      color: var(--color-text-light);
+      line-height: 1.6;
+      margin-bottom: 12px;
+    }
+
+    .product-card-body .ingredients {
+      font-size: 13px;
+      color: #888;
+      line-height: 1.5;
+    }
+
+    /* About / Story */
+    .story-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 60px;
+      align-items: center;
+    }
+
+    .story-img {
+      width: 100%;
+      border-radius: var(--radius);
+      object-fit: cover;
+      aspect-ratio: 4/3;
+    }
+
+    .story-content h2 {
+      font-family: var(--font-heading);
+      font-size: 32px;
+      font-weight: 400;
+      margin-bottom: 20px;
+    }
+
+    .story-content p {
+      font-size: 16px;
+      line-height: 1.8;
+      color: var(--color-text-light);
+      margin-bottom: 16px;
+    }
+
+    /* Stockists */
+    .stockists-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 32px;
+      text-align: center;
+    }
+
+    .stockist-card {
+      background: var(--color-bg);
+      border: 1px solid var(--color-border);
+      padding: 40px 32px;
+      border-radius: var(--radius);
+    }
+
+    .stockist-card .icon {
+      font-size: 32px;
+      margin-bottom: 16px;
+    }
+
+    .stockist-card h3 {
+      font-family: var(--font-heading);
+      font-size: 20px;
+      font-weight: 400;
+      margin-bottom: 8px;
+    }
+
+    .stockist-card p {
+      font-size: 14px;
+      color: var(--color-text-light);
+      line-height: 1.6;
+    }
+
+    /* FAQ */
+    .faq-list {
+      max-width: 800px;
+      margin: 0 auto;
+    }
+
+    .faq-item {
+      border-bottom: 1px solid var(--color-border);
+    }
+
+    .faq-question {
+      width: 100%;
+      background: none;
+      border: none;
+      padding: 24px 0;
+      font-family: var(--font-body);
+      font-size: 17px;
+      font-weight: 600;
+      color: var(--color-text);
+      text-align: left;
+      cursor: pointer;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      line-height: 1.4;
+    }
+
+    .faq-question:hover {
+      opacity: 0.7;
+    }
+
+    .faq-question .arrow {
+      font-size: 20px;
+      transition: transform 0.3s;
+      flex-shrink: 0;
+      margin-left: 16px;
+    }
+
+    .faq-question.active .arrow {
+      transform: rotate(180deg);
+    }
+
+    .faq-answer {
+      max-height: 0;
+      overflow: hidden;
+      transition: max-height 0.3s ease, padding 0.3s ease;
+    }
+
+    .faq-answer.open {
+      max-height: 300px;
+    }
+
+    .faq-answer-inner {
+      padding: 0 0 24px;
+      font-size: 15px;
+      color: var(--color-text-light);
+      line-height: 1.7;
+    }
+
+    /* CTA Banner */
+    .cta-banner {
+      background: #000000;
+      color: #fff;
+      text-align: center;
+      padding: 60px 40px;
+    }
+
+    .cta-banner h2 {
+      font-family: var(--font-heading);
+      font-size: 32px;
+      font-weight: 400;
+      margin-bottom: 12px;
+    }
+
+    .cta-banner p {
+      font-size: 16px;
+      opacity: 0.85;
+      margin-bottom: 24px;
+    }
+
+    .cta-banner .btn-outline {
+      border-color: #fff;
+      color: #fff;
+    }
+
+    .cta-banner .btn-outline:hover {
+      background: #fff;
+      color: var(--color-accent);
+    }
+
+    /* Footer */
+    .site-footer {
+      background: #000000;
+      padding: 48px 40px 24px;
+      border-top: none;
+      color: #ffffff;
+    }
+
+    .footer-inner {
+      max-width: var(--page-width);
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: 1fr 1fr 1fr;
+      gap: 40px;
+      margin-bottom: 32px;
+    }
+
+    .footer-col h4 {
+      font-family: var(--font-heading);
+      font-size: 16px;
+      font-weight: 400;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      margin-bottom: 16px;
+      color: #ffffff;
+    }
+
+    .footer-col a {
+      display: block;
+      color: rgba(255,255,255,0.7);
+      text-decoration: none;
+      font-size: 14px;
+      margin-bottom: 8px;
+      transition: opacity 0.2s;
+    }
+
+    .footer-col a:hover {
+      color: #ffffff;
+      opacity: 1;
+    }
+
+    .footer-col p {
+      font-size: 14px;
+      color: rgba(255,255,255,0.7);
+      line-height: 1.6;
+    }
+
+    .footer-bottom {
+      max-width: var(--page-width);
+      margin: 0 auto;
+      padding-top: 24px;
+      border-top: 1px solid rgba(255,255,255,0.15);
+      text-align: center;
+      font-size: 13px;
+      color: rgba(255,255,255,0.5);
+    }
+
+    /* Animations */
+    html {
+      scroll-behavior: smooth;
+    }
+
+    @keyframes fadeInUp {
+      from {
+        opacity: 0;
+        transform: translateY(30px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    .animate-on-scroll {
+      opacity: 0;
+      transform: translateY(30px);
+      transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+    }
+
+    .animate-on-scroll.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    .animate-on-scroll.delay-1 { transition-delay: 0.1s; }
+    .animate-on-scroll.delay-2 { transition-delay: 0.2s; }
+    .animate-on-scroll.delay-3 { transition-delay: 0.3s; }
+
+    .product-card {
+      transition: box-shadow 0.3s, transform 0.3s;
+    }
+
+    .product-card:hover {
+      transform: translateY(-4px);
+    }
+
+    .stockist-card {
+      transition: box-shadow 0.3s, transform 0.3s;
+    }
+
+    .stockist-card:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 4px 20px rgba(0,0,0,0.08);
+    }
+
+    .btn {
+      transition: all 0.3s ease;
+    }
+
+    .btn-outline:hover {
+      transform: scale(1.03);
+    }
+
+    .hero-content {
+      animation: fadeInUp 1s ease-out 0.3s both;
+    }
+
+    .header-logo img {
+      transition: transform 0.3s;
+    }
+
+    .header-logo:hover img {
+      transform: scale(1.05);
+    }
+
+    /* Responsive */
+    @media (max-width: 768px) {
+      .header-nav { display: none; }
+      .hero-content h1 { font-size: 32px; }
+      .product-grid { grid-template-columns: 1fr; }
+      .story-grid { grid-template-columns: 1fr; }
+      .stockists-grid { grid-template-columns: 1fr; }
+      .footer-inner { grid-template-columns: 1fr; }
+      .section { padding: 48px 20px; }
+    }
+  </style>
+
+  <meta name="robots" content="noindex, nofollow" />
+  
+  <style>
+    h1, h2, h3, h4, h5, h6, h1 *, h2 *, h3 *, h4 *, h5 *, h6 * { font-weight: 700 !important; }
+  </style>
+</head>
+<body>
+<!-- Header -->
+  <header class="site-header">
+    <div class="header-inner">
+      <a href="/" class="header-logo" onclick="event.preventDefault();window.scrollTo({top:0,behavior:'smooth'})">
+        <img src="https://amzreijbdxyuomovdyvg.supabase.co/storage/v1/object/public/site-assets/cmnwaq4vr000004joi90v86on/images-logo.png" alt="Clevedon Cuisine">
+      </a>
+      <nav>
+        <ul class="header-nav">
+          <li><a href="/" onclick="event.preventDefault();window.scrollTo({top:0,behavior:'smooth'})">Home</a></li>
+          <li><a href="#products">Products</a></li>
+          <li><a href="#our-story">Our Story</a></li>
+          <li><a href="#stockists">Stockists</a></li>
+          <li><a href="#faq">FAQ</a></li>
+          <li><a href="#contact">Contact</a></li>
+        </ul>
+      </nav>
+      <div class="header-social">
+        <a href="https://www.instagram.com/clevedoncuisine/" target="_blank" aria-label="Instagram">
+          <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zM12 16a4 4 0 110-8 4 4 0 010 8zm6.406-11.845a1.44 1.44 0 100 2.881 1.44 1.44 0 000-2.881z"/></svg>
+        </a>
+      </div>
+    </div>
+  </header>
+
+  <!-- Hero Section -->
+  <section class="hero">
+    <img src="https://amzreijbdxyuomovdyvg.supabase.co/storage/v1/object/public/site-assets/cmnwaq4vr000004joi90v86on/images-hero.png" alt="Clevedon Cuisine products">
+    <div class="hero-overlay"></div>
+    <div class="hero-content">
+      <a href="#products" class="btn btn-outline" onclick="event.preventDefault();document.getElementById('products').scrollIntoView({behavior:'smooth'})">View Our Range</a>
+    </div>
+  </section>
+
+  <!-- Products Section -->
+  <section class="section" id="products">
+    <div class="section-inner">
+      <h2 class="section-heading animate-on-scroll">Our Range</h2>
+      <p class="section-subheading">Every jar is handcrafted in small batches using locally sourced ingredients from the Clevedon region.</p>
+
+      <div class="product-grid">
+
+        <div class="product-card animate-on-scroll delay-1">
+          <div class="product-card-img">
+            <img src="https://amzreijbdxyuomovdyvg.supabase.co/storage/v1/object/public/site-assets/cmnwaq4vr000004joi90v86on/images-parsley-mayo-300ml.png" alt="Parsley Mayo 300ml Jar">
+          </div>
+          <div class="product-card-body">
+            <h3>Parsley Mayo</h3>
+            <div class="price"><body>2.90 NZD</div>
+            <p class="description">Handcrafted with fresh parsley in New Zealand. Perfect for sandwiches, dips, fish, chicken, salads, and grazing platters. 300ml jar.</p>
+            <p class="ingredients">Canola Oil, White Wine Vinegar, Parsley, Free Range Egg, Sugar, Mustard, Garlic, Salt, Pepper</p>
+          </div>
+        </div>
+
+        <div class="product-card animate-on-scroll delay-2">
+          <div class="product-card-img">
+            <img src="https://amzreijbdxyuomovdyvg.supabase.co/storage/v1/object/public/site-assets/cmnwaq4vr000004joi90v86on/images-parsley-mayo-1l.png" alt="Parsley Mayo 1 Litre Pouch">
+          </div>
+          <div class="product-card-body">
+            <h3>Parsley Mayo - 1 Litre Pouch</h3>
+            <div class="price">$30.00 NZD</div>
+            <p class="description">The same delicious Parsley Mayo in a larger refill format. A whole litre to keep you going. Perfect for families and entertaining.</p>
+            <p class="ingredients">Canola Oil, White Wine Vinegar, Parsley, Free Range Egg, Sugar, Mustard, Garlic, Salt, Pepper</p>
+          </div>
+        </div>
+
+        <div class="product-card animate-on-scroll delay-3">
+          <div class="product-card-img">
+            <img src="https://amzreijbdxyuomovdyvg.supabase.co/storage/v1/object/public/site-assets/cmnwaq4vr000004joi90v86on/images-tasty-tom-sauce.png" alt="Tasty Tom Sauce 350ml Jar">
+          </div>
+          <div class="product-card-body">
+            <h3>Tasty Tom Sauce</h3>
+            <div class="price"><body>2.90 NZD</div>
+            <p class="description">Handmade in small batches. Brilliant as a BBQ accompaniment, cheese pairing, pizza sauce, or to add depth to casseroles and soups. 350ml jar.</p>
+            <p class="ingredients">Tomatoes, White Wine Vinegar, Olive Oil, Brown Sugar, Fresh Ginger, Garlic, Mustard Seeds, Cumin, Turmeric, Chilli</p>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- Lifestyle Images Strip -->
+  <section style="display: grid; grid-template-columns: 1fr 1fr; max-height: 400px; overflow: hidden;">
+    <img src="https://amzreijbdxyuomovdyvg.supabase.co/storage/v1/object/public/site-assets/cmnwaq4vr000004joi90v86on/images-mayo-meal.jpg" alt="Parsley Mayo meal" style="width:100%; height:400px; object-fit:cover;">
+    <img src="https://amzreijbdxyuomovdyvg.supabase.co/storage/v1/object/public/site-assets/cmnwaq4vr000004joi90v86on/images-tom-meal.jpg" alt="Tasty Tom Sauce meal" style="width:100%; height:400px; object-fit:cover;">
+  </section>
+
+  <!-- Our Story Section -->
+  <section class="section section-alt" id="our-story">
+    <div class="section-inner">
+      <div class="story-grid animate-on-scroll">
+        <img src="https://amzreijbdxyuomovdyvg.supabase.co/storage/v1/object/public/site-assets/cmnwaq4vr000004joi90v86on/images-about.jpg" alt="Sam and Louise - Clevedon Cuisine" class="story-img">
+        <div class="story-content">
+          <h2>Our Story</h2>
+          <p>We are Sam and Louise, passionate caterers who launched our products at the Clevedon Farmers Market. We started producing Parsley Mayo and Tasty Tom Sauce to accompany our Bacon and Egg baps at the market.</p>
+          <p>A decade on, we still have an overwhelmingly positive response from our market goers and local community. Our Parsley Mayo is produced in small batches from our Clevedon kitchen, using locally grown parsley from Clevedon Herbs and Produce.</p>
+          <p>We feel now is the right time to expand into a wider network of specialty food stores so even more people can enjoy our products.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Stockists Section -->
+  <section class="section" id="stockists">
+    <div class="section-inner">
+      <h2 class="section-heading animate-on-scroll">Where to Find Us</h2>
+      <p class="section-subheading">Pick up Clevedon Cuisine products at these locations. We are expanding into more specialty food stores soon.</p>
+
+      <div class="stockists-grid">
+
+        <div class="stockist-card animate-on-scroll delay-1">
+          <div class="icon">&#127819;</div>
+          <h3>Clevedon Farmers Market</h3>
+          <p>Find us every Sunday morning at the Clevedon Village Farmers Market. Come say hello and try before you buy.</p>
+        </div>
+
+        <div class="stockist-card animate-on-scroll delay-2">
+          <div class="icon">&#127978;</div>
+          <h3>Clevedon Village Stores</h3>
+          <p>Available at select stores throughout Clevedon Village. Ask for Clevedon Cuisine at your local grocer.</p>
+        </div>
+
+        <div class="stockist-card animate-on-scroll delay-3">
+          <div class="icon">&#128230;</div>
+          <h3>Become a Stockist</h3>
+          <p>Interested in stocking our products? We are looking for specialty food stores across New Zealand. Get in touch with us at clevedon.cuisine@gmail.com</p>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA Banner -->
+  <div class="cta-banner animate-on-scroll" id="contact">
+    <h2>Want to Stock Our Products?</h2>
+    <p>We are expanding into specialty food stores across New Zealand. Get in touch today.</p>
+    <a href="mailto:clevedon.cuisine@gmail.com" class="btn btn-outline">clevedon.cuisine@gmail.com</a>
+  </div>
+
+  <!-- FAQ Section -->
+  <section class="section section-alt" id="faq">
+    <div class="section-inner">
+      <h2 class="section-heading animate-on-scroll">Frequently Asked Questions</h2>
+      <p class="section-subheading">Everything you need to know about our handcrafted condiments.</p>
+
+      <div class="faq-list">
+
+        <div class="faq-item">
+          <button class="faq-question" onclick="toggleFaq(this)">
+            What makes Clevedon Cuisine products different?
+            <span class="arrow">&#9660;</span>
+          </button>
+          <div class="faq-answer">
+            <div class="faq-answer-inner">Every batch is handcrafted in our Clevedon kitchen using locally sourced ingredients. Our parsley comes from Clevedon Herbs and Produce, and we use free range eggs in our mayo. No mass production here, just genuine small-batch quality you can taste.</div>
+          </div>
+        </div>
+
+        <div class="faq-item">
+          <button class="faq-question" onclick="toggleFaq(this)">
+            What is the best way to use Parsley Mayo?
+            <span class="arrow">&#9660;</span>
+          </button>
+          <div class="faq-answer">
+            <div class="faq-answer-inner">Our Parsley Mayo is incredibly versatile. It is perfect with bacon and eggs, fish, chicken, in sandwiches, through potato salad, as a dip, or on grazing platters. Basically, anywhere you would use regular mayo but want something with more flavour and personality.</div>
+          </div>
+        </div>
+
+        <div class="faq-item">
+          <button class="faq-question" onclick="toggleFaq(this)">
+            How should I use Tasty Tom Sauce?
+            <span class="arrow">&#9660;</span>
+          </button>
+          <div class="faq-answer">
+            <div class="faq-answer-inner">Tasty Tom is a brilliant BBQ accompaniment, pairs wonderfully with cheese, works as a pizza sauce, and adds real depth to casseroles and soups. It is one of those products that once you try it, you will find a use for it with almost every meal.</div>
+          </div>
+        </div>
+
+        <div class="faq-item">
+          <button class="faq-question" onclick="toggleFaq(this)">
+            Are your products gluten free?
+            <span class="arrow">&#9660;</span>
+          </button>
+          <div class="faq-answer">
+            <div class="faq-answer-inner">Our products are made with simple, whole ingredients. Please check the ingredients list on each product for any specific dietary concerns. If you have questions about allergens, feel free to contact us at clevedon.cuisine@gmail.com and we are happy to help.</div>
+          </div>
+        </div>
+
+        <div class="faq-item">
+          <button class="faq-question" onclick="toggleFaq(this)">
+            How long do the products last once opened?
+            <span class="arrow">&#9660;</span>
+          </button>
+          <div class="faq-answer">
+            <div class="faq-answer-inner">Because our products are made with real, fresh ingredients without preservatives, we recommend refrigerating after opening and using within a few weeks. Check the label on your jar for the specific best-before date.</div>
+          </div>
+        </div>
+
+        <div class="faq-item">
+          <button class="faq-question" onclick="toggleFaq(this)">
+            Where can I buy Clevedon Cuisine products?
+            <span class="arrow">&#9660;</span>
+          </button>
+          <div class="faq-answer">
+            <div class="faq-answer-inner">You can find us at the Clevedon Farmers Market every Sunday morning and at select stores in Clevedon Village. We are currently expanding into specialty food stores across New Zealand. Keep an eye on our website and Instagram for updates on new stockist locations.</div>
+          </div>
+        </div>
+
+        <div class="faq-item">
+          <button class="faq-question" onclick="toggleFaq(this)">
+            Can I order online for delivery?
+            <span class="arrow">&#9660;</span>
+          </button>
+          <div class="faq-answer">
+            <div class="faq-answer-inner">We are working on making our products available for online ordering and delivery. In the meantime, the best way to get your hands on Clevedon Cuisine is to visit us at the Clevedon Farmers Market or pop into one of our local stockists. Follow us on Instagram for the latest updates.</div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="site-footer">
+    <div class="footer-inner">
+      <div class="footer-col">
+        <h4>Clevedon Cuisine</h4>
+        <p>Handcrafted condiments made in small batches from our kitchen in Clevedon, New Zealand. Elevating everyday flavours since the Clevedon Farmers Market.</p>
+      </div>
+      <div class="footer-col">
+        <h4>Quick Links</h4>
+        <a href="#products">Products</a>
+        <a href="#our-story">Our Story</a>
+        <a href="#stockists">Stockists</a>
+        <a href="#faq">FAQ</a>
+        <a href="#contact">Contact</a>
+      </div>
+      <div class="footer-col">
+        <h4>Get in Touch</h4>
+        <a href="mailto:clevedon.cuisine@gmail.com">clevedon.cuisine@gmail.com</a>
+        <a href="https://www.instagram.com/clevedoncuisine/" target="_blank">Follow us on Instagram</a>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      &copy; 2026 Clevedon Cuisine. All rights reserved.
+    </div>
+  </footer>
+
+  <script>
+    function toggleFaq(btn) {
+      const answer = btn.nextElementSibling;
+      const isOpen = answer.classList.contains('open');
+
+      // Close all
+      document.querySelectorAll('.faq-answer').forEach(a => a.classList.remove('open'));
+      document.querySelectorAll('.faq-question').forEach(q => q.classList.remove('active'));
+
+      // Toggle current
+      if (!isOpen) {
+        answer.classList.add('open');
+        btn.classList.add('active');
+      }
+    }
+
+    // Scroll animations
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible');
+          observer.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.15 });
+
+    document.querySelectorAll('.animate-on-scroll').forEach(el => observer.observe(el));
+  </script>
+<script src="https://projecthub.virtualinnovation.co.nz/feedback-widget.js" data-key="fb_dr6dg0o6bvh"></script>
+</body>
+</html>
